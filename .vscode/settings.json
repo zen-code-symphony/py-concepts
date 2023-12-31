@@ -1,0 +1,22 @@
+{
+    "[python]": {
+        "editor.defaultFormatter": "ms-python.black-formatter",
+        "editor.formatOnSave": true,
+        "editor.codeActionsOnSave": {
+            "source.organizeImports": "explicit"
+        },
+        "editor.rulers": [
+            79
+        ]
+    },
+    "flake8.importStrategy": "fromEnvironment",
+    "flake8.cwd": "${workspaceFolder}",
+    "black-formatter.importStrategy": "fromEnvironment",
+    "isort.args": [
+        "--profile",
+        "black"
+    ],
+    "isort.importStrategy": "fromEnvironment",
+    "mypy-type-checker.cwd": "${workspaceFolder}",
+    "mypy-type-checker.importStrategy": "fromEnvironment"
+}

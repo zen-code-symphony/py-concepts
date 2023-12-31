@@ -1,0 +1,14 @@
+[tool.isort]
+profile = "black"
+src_paths = [ "src" ]
+
+[tool.pytest.ini_options]
+python_files = ["tests.py", "*_test.py"]
+testpaths = [
+    "src",
+]
+
+[tool.coverage.report]
+exclude_lines = [
+    'if __name__ == "__main__":'
+]

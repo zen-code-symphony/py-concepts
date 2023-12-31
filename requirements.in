@@ -1,0 +1,15 @@
+# Linting, formatting.
+black
+flake8
+isort
+mypy
+
+# Dependency management.
+pip-tools
+
+# pre-commit.
+pre-commit
+
+# pytest.
+pytest
+pytest-cov
