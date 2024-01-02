@@ -1,4 +1,4 @@
-# py-basic-scaffold
+# py-concepts
 
 The objective of this project is to demonstrate various Python concepts. `git clone` and make it yours!
 
@@ -25,13 +25,13 @@ Run the below command to create a project based on this basic scaffold. **NOTE**
 **Option 1**: Create new project from Linux or macOS command shell and stay in the shell:
 ```sh
 # Replace "my_project" with your own project name.
-curl -sSL https://raw.githubusercontent.com/zen-code-symphony/py-basic-scaffold/main/create-project.sh | bash -s my_project && cd my_project && source venv/bin/activate
+curl -sSL https://raw.githubusercontent.com/zen-code-symphony/py-concepts/main/create-project.sh | bash -s my_project && cd my_project && source venv/bin/activate
 ```
 
 **Option 2**: Create new project from Linux or macOS shell and open VS Code editor:
 ```sh
 # Replace "my_project" with your own project name.
-curl -sSL https://raw.githubusercontent.com/zen-code-symphony/py-basic-scaffold/main/create-project.sh | bash -s my_project && cd my_project && code .
+curl -sSL https://raw.githubusercontent.com/zen-code-symphony/py-concepts/main/create-project.sh | bash -s my_project && cd my_project && code .
 ```
 
 ## Configure VS Code
