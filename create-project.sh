@@ -9,8 +9,8 @@ fi
 
 DIR_NAME=$1
 
-git clone git@github.com:zen-code-symphony/py-basic-scaffold.git
-mv py-basic-scaffold "$DIR_NAME"
+git clone git@github.com:zen-code-symphony/py-concepts.git
+mv py-concepts "$DIR_NAME"
 cd "$DIR_NAME"
 rm -rf .git
 git init
