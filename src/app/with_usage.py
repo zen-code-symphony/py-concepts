@@ -1,11 +1,11 @@
-# Use of with.
-#
-# Key takeaways:
-# - Simplify exception handling - encapsulate try/finally in context manager.
-# - Safe aquisition and release of system resources. Resources acquired and
-#   released automatically as part of entering and exiting the with context.
-# - Avoid resource leaks and make code easier to read.
+"""Provide example usage of `with` in Python.
 
+Key takeaways:
+- Simplify exception handling - encapsulate try/finally in context manager.
+- Safe aquisition and release of system resources. Resources acquired and
+  released automatically as part of entering and exiting the with context.
+- Avoid resource leaks and make code easier to read.
+"""
 
 from contextlib import contextmanager
 from typing import Self, TextIO, Union
@@ -29,14 +29,13 @@ class ManagedFile:
         self.file: Union[None, TextIO] = None
 
     def __enter__(self) -> TextIO:
-        print("__enter__ called")
         self.file = open(self.name)
         return self.file
 
     def __exit__(self, exc_type, exc_value, exc_traceback):
-        print("__exit__ called")
         if self.file:
             self.file.close()
+            self.file = None
 
 
 @contextmanager
