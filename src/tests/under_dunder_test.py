@@ -39,3 +39,9 @@ def test_leading_trailing_dunder_accessible(under_dunder):
     # Avoid creating such methods as the naming convention is for special
     # methods in Python laguage. Avoid future conflict.
     assert under_dunder.__dunder__() == "avoid me"
+
+
+def test_single_underscore(under_dunder):
+    # Argument value 10 is captured by temporary variable to which
+    # increment is applied.
+    assert under_dunder.return_temporary_increment_by_one(10) == 11

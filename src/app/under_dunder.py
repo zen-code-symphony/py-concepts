@@ -1,4 +1,14 @@
-"""Provide example usage of underscore and dunders in Python."""
+"""Provide example usage of underscore and dunders member naming in Python.
+
+Key takeways:
+- _var: Naming convention indicates internal use. Hint for developers but not
+  enforced by enterpreter.
+- var_: Naming convention to avoid conflicts with Python keywords.
+- __var: Results in naming mangling; enforced by interpreter.
+- __var__: Special methods defined by Python language. Avoid using this.
+- _: Temporary or insignificant variables. Stores results os last expression
+  in Python REPL.
+"""
 
 
 class UnderDunder:
@@ -14,3 +24,6 @@ class UnderDunder:
 
     def __dunder__(self) -> str:
         return "avoid me"
+
+    def return_temporary_increment_by_one(self, _):
+        return _ + 1
