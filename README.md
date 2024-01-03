@@ -2,6 +2,7 @@
 
 The objective of this project is to demonstrate various Python concepts. `git clone` and make it yours!
 
+[![Testing](https://github.com/zen-code-symphony/py-concepts/actions/workflows/test.yml/badge.svg)](https://github.com/zen-code-symphony/py-concepts/actions/workflows/test.yml)
 
 # Table of Contents
 - [Prerequisites](#prerequisites)
