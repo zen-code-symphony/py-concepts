@@ -16,12 +16,12 @@ def test_single_leading_underscore_accesssed_as_member_variable(under_dunder):
 
 def test_dunder_cannot_be_accesssed_as_member_variable(under_dunder):
     with pytest.raises(AttributeError):
-        # __dunder cannot be access via name access.
+        # __dunder cannot be accessed via name access.
         _ = under_dunder.__dunder
 
 
 def test_dunder_accesssed_via_mangled_name(under_dunder):
-    # __dunder method name is internally mangled.
+    # Member name is internally mangled.
     assert under_dunder._UnderDunder__dunder == "i'm __dunder"
 
 
