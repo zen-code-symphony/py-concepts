@@ -1,6 +1,8 @@
 import pytest
 
 from app.function_object import (
+    StringConvertor,
+    configure_case_converter,
     convert_string_based_on_ask,
     get_string_case_converter,
     greet,
@@ -61,3 +63,24 @@ def test_function_can_be_returned():
     assert lower_func("HELLO") == "hello"
     upper_func = get_string_case_converter("upper")
     assert upper_func("hello") == "HELLO"
+
+
+def test_function_can_capture_local_state():
+    text = "Hello"
+    lower_func = configure_case_converter(text, "lower")
+    upper_func = configure_case_converter(text, "upper")
+    # Lexical closure with text already configured.
+    assert lower_func() == "hello"
+    assert upper_func() == "HELLO"
+
+
+def test_object_can_behave_like_function():
+    text = "Hello"
+    lower = StringConvertor("lower")
+    assert lower(text) == "hello"
+    upper = StringConvertor("upper")
+    assert upper(text) == "HELLO"
+
+    assert callable(lower)
+    assert callable(upper)
+    assert callable(text) is False

@@ -4,7 +4,15 @@ Key takeaways:
 - Everything in Python is an object including functions. Functions can be
   assigned to variables, stored in data structures, passed to / returned from
   functions.
+- First-class functions can accept and return beahviors by passing or
+  returning them as argument.
+- Functions can be nested and capture parent function state. Such functions
+  are called closures.
+- Objects can be made callable thereby allowing them to treat like functions.
 """
+
+
+from typing import Union
 
 
 def greet(text):
@@ -51,3 +59,33 @@ def get_string_case_converter(converter_type):
     elif converter_type == "upper":
         return upper
     return None
+
+
+def configure_case_converter(text, converter_type):
+    """Returns a pre-configured string converter for the requested type."""
+
+    def upper() -> str:
+        return text.upper()
+
+    def lower() -> str:
+        return text.lower()
+
+    if converter_type == "lower":
+        return lower
+    elif converter_type == "upper":
+        return upper
+    return None
+
+
+class StringConvertor:
+    """Represents a callable string converter."""
+
+    def __init__(self, converter_type) -> None:
+        self.converter_type = converter_type
+
+    def __call__(self, text: str) -> Union[str, None]:
+        if self.converter_type == "lower":
+            return text.lower()
+        elif self.converter_type == "upper":
+            return text.upper()
+        return None
