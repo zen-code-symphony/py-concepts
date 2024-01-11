@@ -26,3 +26,6 @@ if __name__ == "__main__":
     print(f"10 x 3: {multiply_3(10)}")
     multiply_10 = make_multiplier(10)
     print(f"10 x 10: {multiply_3(10)}")
+    values = [(12, "b"), (100, "a"), (400, "c")]
+    new_values = sort_tuples_using_key(values)
+    print(f"{values} sorted to: {new_values}")
