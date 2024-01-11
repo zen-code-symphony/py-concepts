@@ -1,4 +1,4 @@
-from app.decorators import noop, toupper
+from app.decorators import noop, tohtmltitle, toupper
 
 
 def test_noop_does_nothing_and_returns_original_function():
@@ -23,3 +23,12 @@ def test_toupper_changes_returned_value_to_uppercase_if_string():
         return 1
 
     assert get_number() == 1
+
+
+def test_decorator_stacking():
+    @tohtmltitle
+    @toupper
+    def get_title():
+        return "learn decorator"
+
+    assert get_title() == "<title>LEARN DECORATOR</title>"

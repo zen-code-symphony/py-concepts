@@ -16,6 +16,26 @@ def noop(func):
     return func
 
 
+def tohtmltitle(func):
+    """Decorates the str output of given function with HTML title tag.
+
+    Args:
+        func: A callable (function) to decorate.
+
+    Returns:
+        An HTML <title> string if return value of decorated function
+        is of type str; non-str value otherwise.
+    """
+
+    def wrapped_func():
+        returned_value = func()
+        if type(returned_value) is str:
+            return f"<title>{returned_value}</title>"
+        return returned_value
+
+    return wrapped_func
+
+
 def toupper(func):
     """Decorates given function by changing returned string to uppercase.
 
@@ -46,8 +66,16 @@ def greetnoop():
     return "hi"
 
 
+@tohtmltitle
+@toupper
+def get_title():
+    return "hello"
+
+
 if __name__ == "__main__":
     # Returned string uppercase'd.
-    print(greet())
+    print(f"upper: {greet()}")
     # No-op. Original function gets called.
-    print(greetnoop())
+    print(f"no-op: {greetnoop()}")
+    # Decorator stacking.
+    print(f"decorator stacking: {get_title()}")
