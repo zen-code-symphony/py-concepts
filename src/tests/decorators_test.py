@@ -1,4 +1,10 @@
-from app.decorators import noop, tohtmltitle, toupper
+from app.decorators import (
+    noop,
+    tohtmltitle,
+    toupper,
+    toupper_with_args,
+    toupper_with_metadata,
+)
 
 
 def test_noop_does_nothing_and_returns_original_function():
@@ -32,3 +38,21 @@ def test_decorator_stacking():
         return "learn decorator"
 
     assert get_title() == "<title>LEARN DECORATOR</title>"
+
+
+def test_decorator_to_maintain_args_kwargs():
+    @toupper_with_args
+    def greet(greeting, name):
+        return f"{greeting} {name}!"
+
+    assert greet("hi", "there") == "HI THERE!"
+
+
+def test_decorator_maintains_metadata_of_decorated_callable():
+    @toupper_with_metadata
+    def greet_with_metadata():
+        """Greets with uppercase string."""
+        return "hi"
+
+    assert greet_with_metadata.__name__ == "greet_with_metadata"
+    assert greet_with_metadata.__doc__ == "Greets with uppercase string."
