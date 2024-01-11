@@ -4,7 +4,7 @@ Key takeaways:
 - Everything in Python is an object including functions. Functions can be
   assigned to variables, stored in data structures, passed to / returned from
   functions.
-- First-class functions can accept and return beahviors by passing or
+- First-class functions can accept and return behaviors by passing or
   returning them as argument.
 - Functions can be nested and capture parent function state. Such functions
   are called closures.
